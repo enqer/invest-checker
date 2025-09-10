@@ -13,8 +13,8 @@ namespace InvestChecker.Api.Controllers
         public async Task<IActionResult> Get()
         {
             var command = new SyncNewsCommand();
-            await mediator.Send(command);
-            return Ok("test");
+            var result = await mediator.Send(command);
+            return Ok(result);
         }
     }
 }

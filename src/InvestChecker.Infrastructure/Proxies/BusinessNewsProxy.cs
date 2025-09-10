@@ -1,14 +1,30 @@
 ﻿using InvestChecker.Application.Common.Interfaces;
 using InvestChecker.Core.AppSettings;
+using InvestChecker.Infrastructure.Configurations;
 using Microsoft.Extensions.Options;
+using System.ServiceModel.Syndication;
+using System.Xml;
 
 namespace InvestChecker.Infrastructure.Proxies;
 
-internal class BusinessNewsProxy(HttpClient httpClient, IOptions<BusinessNewsOptions> options) : IBusinessNewsProvider
+internal class BusinessNewsProxy : IBusinessNewsProvider
 {
-    public async Task<object[]> GetLastestNews(CancellationToken cancellationToken)
+    private readonly HttpClient httpClient;
+
+    public BusinessNewsProxy(IHttpClientFactory httpClientFactory, IOptions<BusinessNewsOptions> options)
     {
-        var response = await httpClient.GetAsync(options.Value.Host, cancellationToken);
-        return null;
+        httpClient = httpClientFactory.CreateClient(InternalHttpClientHandler.ClientName);
+        httpClient.BaseAddress = new Uri(options.Value.Host);
+    }
+
+    public async Task<SyndicationFeed> GetLastestNews(CancellationToken cancellationToken = default)
+    {
+        var response = await httpClient.GetAsync("rss", cancellationToken);
+        response.EnsureSuccessStatusCode();
+        var stream = await response.Content.ReadAsStreamAsync(cancellationToken)
+                ?? throw new NullReferenceException("Should return value");
+
+        using var reader = XmlReader.Create(stream);
+        return SyndicationFeed.Load(reader);
     }
 }

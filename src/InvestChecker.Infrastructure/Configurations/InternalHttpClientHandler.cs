@@ -15,8 +15,8 @@ internal class InternalHttpClientHandler : HttpClientHandler
 
     protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
     {
-        var context = _httpContextAccessor.HttpContext;
-
+        request.Headers.Add("User-Agent", "Mozilla/5.0");
+        request.Headers.Add("Accept", "*/*");
         return await base.SendAsync(request, cancellationToken);
     }
 }

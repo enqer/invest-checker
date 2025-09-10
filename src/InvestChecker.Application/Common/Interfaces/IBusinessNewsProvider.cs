@@ -1,6 +1,8 @@
-﻿namespace InvestChecker.Application.Common.Interfaces;
+﻿using System.ServiceModel.Syndication;
+
+namespace InvestChecker.Application.Common.Interfaces;
 
 public interface IBusinessNewsProvider
 {
-    Task<object[]> GetLastestNews(CancellationToken cancellationToken);
+    Task<SyndicationFeed> GetLastestNews(CancellationToken cancellationToken = default);
 }

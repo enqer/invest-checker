@@ -1,4 +1,5 @@
-﻿using InvestChecker.Application;
+﻿using InvestChecker.Api.Filters;
+using InvestChecker.Application;
 using InvestChecker.Core.AppSettings;
 using InvestChecker.Core.SharedKernel;
 using InvestChecker.Infrastructure;
@@ -9,11 +10,16 @@ public static class Configuration
 {
     public static void AddConfiguration(this WebApplicationBuilder builder)
     {
-        builder.Services.AddInfrastructure(builder.Configuration);
+        builder.Services.AddInfrastructure();
         builder.Services.AddApplication();
 
         builder.Services
                .AddOptionsWithValidation<BusinessNewsOptions>();
+
+        builder.Services.AddControllers(options =>
+        {
+            options.Filters.Add<HttpResponseExceptionFilter>();
+        });
 
         builder.ConfigureEnvironmentVariables();
     }
