@@ -1,15 +1,19 @@
+using InvestChecker.Application.UseCases.News.Commands.SyncNews;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InvestChecker.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class MainController : ControllerBase
+    public class MainController(IMediator mediator) : ControllerBase
     {
 
         [HttpGet(Name = "GetWeatherForecast")]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
+            var command = new SyncNewsCommand();
+            await mediator.Send(command);
             return Ok("test");
         }
     }

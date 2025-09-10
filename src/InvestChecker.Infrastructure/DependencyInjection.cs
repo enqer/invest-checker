@@ -1,5 +1,6 @@
-﻿using InvestChecker.Application.Commons.Interfaces;
-using InvestChecker.Infrastructure.Providers;
+﻿using InvestChecker.Application.Common.Interfaces;
+using InvestChecker.Infrastructure.Configurations;
+using InvestChecker.Infrastructure.Proxies;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -9,7 +10,11 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddScoped<IRSSProvider, RSSProvider>();
+        services.AddScoped<IBusinessNewsProvider, BusinessNewsProxy>();
+        services.AddTransient<InternalHttpClientHandler>();
+        services.AddHttpClient(InternalHttpClientHandler.ClientName)
+                .ConfigurePrimaryHttpMessageHandler<InternalHttpClientHandler>()
+                .AddPolicyHandler(HttpClientPolicy.GetRetryPolicy());
         return services;
     }
 
