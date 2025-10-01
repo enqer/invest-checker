@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\InvestChecker.Application\InvestChecker.Application.csproj" />
     <ProjectReference Include="..\InvestChecker.Infrastructure\InvestChecker.Infrastructure.csproj" />
+    <ProjectReference Include="..\InvestChecker.Quartz\InvestChecker.Quartz.csproj" />
   </ItemGroup>
 
 </Project>

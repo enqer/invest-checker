@@ -3,6 +3,7 @@ using InvestChecker.Application;
 using InvestChecker.Core.AppSettings;
 using InvestChecker.Core.SharedKernel;
 using InvestChecker.Infrastructure;
+using InvestChecker.Quartz;
 
 namespace InvestChecker.Api;
 
@@ -12,6 +13,7 @@ public static class Configuration
     {
         builder.Services.AddInfrastructure();
         builder.Services.AddApplication();
+        builder.Services.AddQuartz(builder.Configuration);
 
         builder.Services
                .AddOptionsWithValidation<BusinessNewsOptions>();

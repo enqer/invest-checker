@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestChecker.Api", "src\InvestChecker.Api\InvestChecker.Api.csproj", "{EA04101E-ABEC-4E0C-9077-3E369D881C58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvestChecker.Api", "src\InvestChecker.Api\InvestChecker.Api.csproj", "{EA04101E-ABEC-4E0C-9077-3E369D881C58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestChecker.Application", "src\InvestChecker.Application\InvestChecker.Application.csproj", "{778CBA96-8118-461C-85F1-44CD3D4D00CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvestChecker.Application", "src\InvestChecker.Application\InvestChecker.Application.csproj", "{778CBA96-8118-461C-85F1-44CD3D4D00CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestChecker.Core", "src\InvestChecker.Core\InvestChecker.Core.csproj", "{75D34C69-CE5C-4529-A44F-09595AB9FD85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvestChecker.Core", "src\InvestChecker.Core\InvestChecker.Core.csproj", "{75D34C69-CE5C-4529-A44F-09595AB9FD85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestChecker.Domain", "src\InvestChecker.Domain\InvestChecker.Domain.csproj", "{2BA73C1A-CDEB-4FE1-8729-5B0184EC54E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvestChecker.Domain", "src\InvestChecker.Domain\InvestChecker.Domain.csproj", "{2BA73C1A-CDEB-4FE1-8729-5B0184EC54E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestChecker.Infrastructure", "src\InvestChecker.Infrastructure\InvestChecker.Infrastructure.csproj", "{5B010CA3-579C-4FF6-96DD-E59B8CA26BC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvestChecker.Infrastructure", "src\InvestChecker.Infrastructure\InvestChecker.Infrastructure.csproj", "{5B010CA3-579C-4FF6-96DD-E59B8CA26BC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestChecker.Quartz", "src\InvestChecker.Quartz\InvestChecker.Quartz.csproj", "{41FFF579-5333-401A-A1C6-691030054515}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{5B010CA3-579C-4FF6-96DD-E59B8CA26BC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B010CA3-579C-4FF6-96DD-E59B8CA26BC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B010CA3-579C-4FF6-96DD-E59B8CA26BC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41FFF579-5333-401A-A1C6-691030054515}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41FFF579-5333-401A-A1C6-691030054515}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41FFF579-5333-401A-A1C6-691030054515}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41FFF579-5333-401A-A1C6-691030054515}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
