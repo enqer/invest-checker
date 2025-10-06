@@ -1,6 +1,7 @@
 ﻿using InvestChecker.Application.Common.Interfaces;
 using InvestChecker.Infrastructure.Configurations;
 using InvestChecker.Infrastructure.Proxies;
+using InvestChecker.Infrastructure.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace InvestChecker.Infrastructure;
@@ -16,6 +17,7 @@ public static class DependencyInjection
         services.AddHttpContextAccessor();
         services.AddScoped<IBusinessNewsProvider, BusinessNewsProxy>();
         services.AddScoped<IHtmlProvider, HtmlProvider>();
+        services.AddScoped<IFileReader, FileService>();
 
         return services;
     }

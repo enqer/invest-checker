@@ -1,5 +1,8 @@
-﻿namespace InvestChecker.Application.Common.Interfaces;
+﻿using InvestChecker.Application.Common.Models;
 
-internal interface IFileReader
+namespace InvestChecker.Application.Common.Interfaces;
+
+public interface IFileReader
 {
+    IAsyncEnumerable<PreprocessDataNews> GetPreprocessDataNews();
 }

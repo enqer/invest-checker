@@ -16,6 +16,7 @@ public static class Configuration
         builder.Services.AddQuartz(builder.Configuration);
 
         builder.Services
+               .AddOptionsWithValidation<ProcessingDataModelOptions>()
                .AddOptionsWithValidation<BusinessNewsOptions>();
 
         builder.Services.AddControllers(options =>
